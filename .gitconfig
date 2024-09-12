@@ -1,0 +1,29 @@
+[core]
+	editor = vim
+	autocrlf = input
+[user]
+	email = paul.carlton414@gmail.com
+	name = Paul Carlton
+[push]
+    default = current
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[http]
+	postBuffer = 1048576000
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/local/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/local/bin/gh auth git-credential
+[url "ssh://git@github.com/nabancard/"]
+  insteadOf = https://github.com/nabancard/
+[url "ssh://git@github.com/paul-carlton/"]
+  insteadOf = https://github.com/paul-carlton/

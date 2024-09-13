@@ -1,4 +1,4 @@
-module github.com/paul-carlton/pinpoint-sms
+module github.com/paul-carlton/aws-smsvoice/pkg/main
 
 go 1.21.6
 
@@ -8,7 +8,7 @@ require (
 )
 
 require (
-	github.com/go-logr/logr v1.4.2 // indirect
+	github.com/go-logr/logr v0.4.0 // indirect
 	github.com/go-logr/zapr v0.4.0 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/google/go-cmp v0.5.5 // indirect

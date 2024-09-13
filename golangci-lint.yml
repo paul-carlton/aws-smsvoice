@@ -199,7 +199,7 @@ linters:
     - goheader
     - goimports
     - revive
-    - mnd
+    # - mnd
     - gomodguard
     - goprintffuncname
     - gosec

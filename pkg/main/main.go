@@ -23,10 +23,7 @@ import (
 
 	// +kubebuilder:scaffold:imports
 
-	"github.com/go-logr/logr"
-	"github.com/pkg/errors"
-	uzap "go.uber.org/zap"
-	"go.uber.org/zap/zapcore"
+	"github.com/paul-carlton/goutils/logging"
 )
 
 const (

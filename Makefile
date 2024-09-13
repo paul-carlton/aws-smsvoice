@@ -12,7 +12,7 @@ GOMOD_VENDOR_DIR:=vendor/
 export VERSION?=latest
 
 ALL_GO_PACKAGES:=$(shell find ${CURDIR}/pkg/ \
-	-type f -name *.go -exec dirname {} \; | sort --uniq)
+	-type f -name *.go -exec dirname {} \; | sort --uniq | sed s#//#/#)
 GO_CHECK_PACKAGES:=$(shell echo $(subst $() $(),\\n,$(ALL_GO_PACKAGES)) | \
 	awk '$$0!~/pkg[\/]api/||/pkg[\/]api[\/]v[1-9][0-9]*[\/]restapi$$/{print $$0}')
 
@@ -96,6 +96,7 @@ clean-${PROJECT}-check:
 
 ${PROJECT}-check: ${GO_CHECK_PACKAGES}
 ${GO_CHECK_PACKAGES}: go.sum
+	echo "GO_CHECK_PACKAGES: ${GO_CHECK_PACKAGES}"
 	$(MAKE) -C $@ --makefile=${CURDIR}/makefile.mk
 
 

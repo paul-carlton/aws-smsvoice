@@ -80,8 +80,13 @@ ${LINT_ARTIFACT}: ${MAKEFILE_PATH}/golangci-lint.yml ${GO_SOURCES}
 		 sysctl -n hw.ncpu || \
 		 echo 1) 2>/dev/null) '*' 2 '-' 1) && \
 	GOPROXY=https://proxy.golang.org,direct \
+	echo "MAKEFILE_LIST: ${MAKEFILE_LIST}"
+	echo "MAKEFILE_PATH: ${MAKEFILE_PATH}"
+	echo "CURDIR: ${CURDIR}"
+	echo "procs=$${procs}"
+	echo "path: $$(realpath ${realpath_args} ${MAKEFILE_PATH} ${CURDIR}| head -1)/."
 	 golangci-lint run \
 		--config ${MAKEFILE_PATH}/golangci-lint.yml \
 		--concurrency=$${procs} \
-		"$$(realpath --relative-to ${MAKEFILE_PATH} ${CURDIR})/.") && \
+		"$$($$realpath --relative-to ${MAKEFILE_PATH} ${CURDIR})/.") && \
 	touch $@

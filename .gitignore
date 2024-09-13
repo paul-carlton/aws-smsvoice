@@ -1,0 +1,8 @@
+.idea/
+build/
+pkg/**/._gometalinter
+**/pkg/**/coverage/
+**/pkg/**/*.md
+vendor/
+client/vendor/
+client/pkg/**/._gometalinter
